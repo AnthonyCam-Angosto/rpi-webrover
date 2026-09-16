@@ -1,4 +1,4 @@
-# Robot Game
+# RPI-webrover
 
 Un projet de robot autonome contrôlable via une interface web, basé sur une Raspberry Pi. Le robot offre deux modes : un **mode jeu** et un **mode libre** pour l'exploration et le contrôle manuel.
 
