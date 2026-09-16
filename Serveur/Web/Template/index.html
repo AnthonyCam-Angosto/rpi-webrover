@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Projet Robot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css')}}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1> Test serveur flask</h1>
+    <div id="status">
+        <span id="status-text" class="status-text status-disconnected">Connecting...</span>
+    </div>
+
+    <div id="video-container">
+        <img id="video" src="" alt="Live Camera Feed">
+    </div>
+
+    <script>
+        const socket = io();
+
+        socket.on('connect', () => {
+            console.log('Connected to server');
+            setStatus('Connected');
+        });
+
+        socket.on('frame', (jpg_as_text) => {
+            const img = document.getElementById('video');
+            img.src = 'data:image/jpeg;base64,' + jpg_as_text;
+        });
+
+        socket.on('disconnect', () => {
+            console.log('Disconnected from server');
+            setStatus('Disconnected');
+        });
+
+        function setStatus(status) {
+            const statusText = document.getElementById('status-text');
+            statusText.textContent = status;
+            if (status === 'Connected') {
+                statusText.classList.remove('status-disconnected');
+                statusText.classList.add('status-connected');
+                statusText.textContent = 'Connected';
+            } else {
+                statusText.classList.remove('status-connected');
+                statusText.classList.add('status-disconnected');
+                statusText.textContent = 'Disconnected';
+            }
+        }
+    </script>
+</body>
+
+</html>

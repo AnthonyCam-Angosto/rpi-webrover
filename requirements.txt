@@ -1,0 +1,12 @@
+Flask
+Flask-SocketIO
+numpy
+opencv-python
+pyzbar
+RPi.GPIO
+adafruit-blinka
+adafruit-circuitpython-pca9685
+adafruit-circuitpython-motor
+
+# Raspberry Pi OS packages, install separately with apt:
+# sudo apt install -y python3-picamera2 libzbar0

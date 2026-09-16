@@ -1,0 +1,24 @@
+body{
+    background-image: url("../Ressource/background.jpg");
+}
+
+img{
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    color: white;
+}
+
+#radar2{
+    width: 100px;
+    height: 100px;
+}

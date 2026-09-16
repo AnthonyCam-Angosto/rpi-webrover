@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Projet Robot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/game.css')}}" />
+</head>
+
+<body>
+
+    <h1> Test serveur flask</h1>
+
+    <img src="{{ url_for('index.video_viewer') }}">
+
+    <p id="etat_game">{{etat_game}}</p>
+</body>
+
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='JS/manette.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='JS/fonction.js')}}"></script>
+</html>
